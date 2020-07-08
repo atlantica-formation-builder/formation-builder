@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+#merc1 {width:81px;height:97px;border:0px solid #aaaaaa;position: absolute;left: 129px;top: 121px;}
+#merc2 {width:81px;height:97px;border:0px solid #aaaaaa;position: absolute;left: 217px;top: 121px;}
+#merc3 {width:81px;height:97px;border:0px solid #aaaaaa;position: absolute;left: 305px;top: 121px;}
+#merc4 {width:81px;height:97px;border:0px solid #aaaaaa;position: absolute;left: 129px;top: 245px;}
+#merc5 {width:81px;height:97px;border:0px solid #aaaaaa;position: absolute;left: 217px;top: 245px;}
+#merc6 {width:81px;height:97px;border:0px solid #aaaaaa;position: absolute;left: 305px;top: 245px;}
+#merc7 {width:81px;height:97px;border:0px solid #aaaaaa;position: absolute;left: 129px;top: 369px;}
+#merc8 {width:81px;height:97px;border:0px solid #aaaaaa;position: absolute;left: 217px;top: 369px;}
+#merc9 {width:81px;height:97px;border:0px solid #aaaaaa;position: absolute;left: 305px;top: 369px;}
+#allmercs {width:1192px;height:933px;padding:10px;border:1px solid #aaaaaa;background:black;position:absolute;left:500px;top:30px;}
+#main {padding:0px;border:0px;border:1px solid #aaaaaa;font:15px arial,sans-serif;color:white;background:#584870;}
+#melee {padding:0px;border:0px;border:1px solid #aaaaaa;font:15px arial,sans-serif;color:white;background:#584870;}
+#ranged {padding:0px;border:0px;border:1px solid #aaaaaa;font:15px arial,sans-serif;color:white;background:#584870;}
+#magic {padding:0px;border:0px;border:1px solid #aaaaaa;font:15px arial,sans-serif;color:white;background:#584870;}
+</style>
+<script>
+function allowDrop(ev) {
+     ev.preventDefault();
+ }
+function drag(ev) {
+     ev.dataTransfer.setData("text", ev.target.id);
+ }
+function drop(ev) {
+     ev.preventDefault();
+     var data = ev.dataTransfer.getData("text");
+     var copydata = document.getElementById(data).cloneNode(true);
+     copydata.id = "newid";
+     copydata.ondragstart = function() { return false; };
+     copydata.ondblclick = function() {this.parentNode.removeChild(this);};
+     ev.target.appendChild(copydata);
+ }
+</script>
+<title>Formation builder v1.0 by Glacius</title>
+</head>
+<body>
+<img src="images/build_background.png"" alt="build_background" title="Hint: double-click on the mercenary to remove him from the formation" draggable="false" style="position: absolute;left: 100px;top: 30px;" />
+<div id="merc1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="merc2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="merc3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="merc4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="merc5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="merc6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="merc7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="merc8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="merc9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="allmercs">
+<div id="main">&nbsp;
+Main<BR>
+<img id="sword_main" src="buddies/main/sword_main.png" alt="sword_main" title="Sword Main" draggable="true" ondragstart="drag(event)" />
+<img id="spear_main" src="buddies/main/spear_main.png" alt="spear_main" title="Spear Main" draggable="true" ondragstart="drag(event)" />
+<img id="axe_main" src="buddies/main/axe_main.png" alt="axe_main" title="Axe Main" draggable="true" ondragstart="drag(event)" />
+<img id="powersaw_main" src="buddies/main/powersaw_main.png" alt="powersaw_main" title="PowerSaw Main" draggable="true" ondragstart="drag(event)" />
+<img id="gun_main" src="buddies/main/gun_main.png" alt="gun_main" title="Gun Main" draggable="true" ondragstart="drag(event)" />
+<img id="bow_main" src="buddies/main/bow_main.png" alt="bow_main" title="Bow Main" draggable="true" ondragstart="drag(event)" />
+<img id="cannon_main" src="buddies/main/cannon_main.png" alt="cannon_main" title="Cannon Main" draggable="true" ondragstart="drag(event)" />
+<img id="instrument_main" src="buddies/main/instrument_main.png" alt="instrument_main" title="Instrument Main" draggable="true" ondragstart="drag(event)" />
+<img id="staff_main" src="buddies/main/staff_main.png" alt="staff_main" title="Staff Main" draggable="true" ondragstart="drag(event)" />
+<img id="atlantian_battlemage" src="buddies/main/atlantian_battlemage.png" alt="atlantian_battlemage" title="Atlantian Battlemage" draggable="true" ondragstart="drag(event)" />
+<img id="atlantian_blademaster" src="buddies/main/atlantian_blademaster.png" alt="atlantian_blademaster" title="Atlantian Blademaster" draggable="true" ondragstart="drag(event)" />
+<img id="stormcaller" src="buddies/main/stormcaller.png" alt="stormcaller" title="Stormcaller" draggable="true" ondragstart="drag(event)" />
+<img id="celestial_hunter" src="buddies/main/celestial_hunter.png" alt="celestial_hunter" title="Celestial Hunter" draggable="true" ondragstart="drag(event)" />
+</div>
+<BR>
+<div id="melee">&nbsp;
+Melee<BR>
+<img id="beast_trainer" src="buddies/melee/beast_trainer.png" alt="beast_trainer" title="Beast Trainer" draggable="true" ondragstart="drag(event)" />
+<img id="bounty_hunter" src="buddies/melee/bounty_hunter.png" alt="bounty_hunter" title="Bounty Hunter" draggable="true" ondragstart="drag(event)" />
+<img id="champion" src="buddies/melee/champion.png" alt="champion" title="Champion" draggable="true" ondragstart="drag(event)" />
+<img id="ching_yue" src="buddies/melee/ching_yue.png" alt="ching_yue" title="Ching Yue" draggable="true" ondragstart="drag(event)" />
+<img id="chueh_shui" src="buddies/melee/chueh_shui.png" alt="chueh_shui" title="Chueh Shui" draggable="true" ondragstart="drag(event)" />
+<img id="clown" src="buddies/melee/clown.png" alt="clown" title="Clown" draggable="true" ondragstart="drag(event)" />
+<img id="
+" src="buddies/melee/dark_king_arthur.png" alt="dark_king_arthur" title="Dark King Arthur" draggable="true" ondragstart="drag(event)" />
+<img id="druid" src="buddies/melee/druid.png" alt="druid" title="Druid" draggable="true" ondragstart="drag(event)" />
+<img id="empress_tianmo" src="buddies/melee/empress_tianmo.png" alt="empress_tianmo" title="Empress Tianmo" draggable="true" ondragstart="drag(event)" />
+<img id="exorcist" src="buddies/melee/exorcist.png" alt="exorcist" title="Exorcist" draggable="true" ondragstart="drag(event)" />
+<img id="fangzhang" src="buddies/melee/fangzhang.png" alt="fhangzhang" title="Fangzhang" draggable="true" ondragstart="drag(event)" />
+<img id="general" src="buddies/melee/general.png" alt="general" title="General" draggable="true" ondragstart="drag(event)" />
+<img id="gou_chen_nam" src="buddies/melee/gou_chen_nam.png" alt="gou_chen_nam" title="Gou Chen Nam" draggable="true" ondragstart="drag(event)" />
+<img id="grim_reaper" src="buddies/melee/grim_reaper.png" alt="grim_reaper" title="Grim Reaper" draggable="true" ondragstart="drag(event)" />
+<img id="guangmo" src="buddies/melee/guangmo.png" alt="guangmo" title="Guangmo" draggable="true" ondragstart="drag(event)" />
+<img id="heisha_modi" src="buddies/melee/heisha_modi.png" alt="heisha_modi" title="Heisha Modi" draggable="true" ondragstart="drag(event)" />
+<img id="kim_choon_sam" src="buddies/melee/kim_choon_sam.png" alt="kim_choon_sam" title="Kim Choon Sam" draggable="true" ondragstart="drag(event)" />
+<img id="lady_knight" src="buddies/melee/lady_knight.png" alt="lady_knight" title="Lady Knight" draggable="true" ondragstart="drag(event)" />
+<img id="master_lian_hua" src="buddies/melee/master_lian_hua.png" alt="master_lian_hua" title="Master Lian Hua" draggable="true" ondragstart="drag(event)" />
+<img id="mo_chien_lang" src="buddies/melee/mo_chien_lang.png" alt="mo_chien_lang" title="Mo Chien Lang" draggable="true" ondragstart="drag(event)" />
+<img id="nightshade" src="buddies/melee/nightshade.png" alt="nightshade" title="Nightshade" draggable="true" ondragstart="drag(event)" />
+<img id="northern_viking" src="buddies/melee/northern_viking.png" alt="northern_viking" title="Northern_viking" draggable="true" ondragstart="drag(event)" />
+<img id="pirate" src="buddies/melee/pirate.png" alt="pirate" title="Pirate" draggable="true" ondragstart="drag(event)" />
+<img id="punisher" src="buddies/melee/punisher.png" alt="punisher" title="Punisher" draggable="true" ondragstart="drag(event)" />
+<img id="puppeteer" src="buddies/melee/puppeteer.png" alt="puppeteer" title="Puppeteer" draggable="true" ondragstart="drag(event)" />
+<img id="sage_king_arthur" src="buddies/melee/sage_king_arthur.png" alt="sage_king_arthur" title="Sage King Arthur" draggable="true" ondragstart="drag(event)" />
+<img id="soranggoon" src="buddies/melee/soranggoon.png" alt="soranggoon" title="Soranggoon" draggable="true" ondragstart="drag(event)" />
+<img id="spartan" src="buddies/melee/spartan.png" alt="spartan" title="Spartan" draggable="true" ondragstart="drag(event)" />
+<img id="spearman" src="buddies/melee/spearman.png" alt="spearman" title="Spearman" draggable="true" ondragstart="drag(event)" />
+<img id="swordsman" src="buddies/melee/swordsman.png" alt="swordsman" title="Swordsman" draggable="true" ondragstart="drag(event)" />
+<img id="tania" src="buddies/melee/tania.png" alt="tania" title="Tania" draggable="true" ondragstart="drag(event)" />
+<img id="taoist" src="buddies/melee/taoist.png" alt="taoist" title="Taoist" draggable="true" ondragstart="drag(event)" />
+<img id="tarkan" src="buddies/melee/tarkan.png" alt="tarkan" title="Tarkan" draggable="true" ondragstart="drag(event)" />
+<img id="valkyrie" src="buddies/melee/valkyrie.png" alt="valkyrie" title="Valkyrie" draggable="true" ondragstart="drag(event)" />
+<img id="warlord" src="buddies/melee/warlord.png" alt="warlord" title="Warlord" draggable="true" ondragstart="drag(event)" />
+</div>
+<BR>
+<div id="ranged">&nbsp;
+Ranged<BR>
+<img id="artilleryman" src="buddies/ranged/artilleryman.png"" alt="artilleryman" title="Artilleryman" draggable="true" ondragstart="drag(event)" />
+<img id="automaton" src="buddies/ranged/automaton.png"" alt="automaton" title="Automaton" draggable="true" ondragstart="drag(event)" />
+<img id="bai_xian" src="buddies/ranged/bai_xian.png"" alt="bai_xian" title="Bai Xian" draggable="true" ondragstart="drag(event)" />
+<img id="bai_yigai" src="buddies/ranged/bai_yigai.png"" alt="bai_yigai" title="Bai Yigai" draggable="true" ondragstart="drag(event)" />
+<img id="bard" src="buddies/ranged/bard.png"" alt="bard" title="Bard" draggable="true" ondragstart="drag(event)" />
+<img id="beggar_su" src="buddies/ranged/beggar_su.png"" alt="beggar_su" title="Beggar Su" draggable="true" ondragstart="drag(event)" />
+<img id="cannoneer" src="buddies/ranged/cannoneer.png"" alt="cannoneer" title="Cannoneer" draggable="true" ondragstart="drag(event)" />
+<img id="centaur_archer" src="buddies/ranged/centaur_archer.png"" alt="centaur_archer" title="Centaur Archer" draggable="true" ondragstart="drag(event)" />
+<img id="chiu_hong" src="buddies/ranged/chiu_hong.png"" alt="chiu_hong" title="Chiu Hong" draggable="true" ondragstart="drag(event)" />
+<img id="dark_archer" src="buddies/ranged/dark_archer.png"" alt="dark_archer" title="Dark Archer" draggable="true" ondragstart="drag(event)" />
+<img id="demeian_guardian" src="buddies/ranged/demeian_guardian.png" alt="demeian_guardian" title="Demeian Guardian" draggable="true" ondragstart="drag(event)" />
+<img id="dryad" src="buddies/ranged/dryad.png" alt="dryad" title="Dryad" draggable="true" ondragstart="drag(event)" />
+<img id="empress" src="buddies/ranged/empress.png" alt="empress" title="Empress" draggable="true" ondragstart="drag(event)" />
+<img id="folklorist" src="buddies/ranged/folklorist.png" alt="folklorist" title="Folklorist" draggable="true" ondragstart="drag(event)" />
+<img id="gunner" src="buddies/ranged/gunner.png" alt="gunner" title="Gunner" draggable="true" ondragstart="drag(event)" />
+<img id="hippolyte" src="buddies/ranged/hippolyte.png" alt="hippolyte" title="Hippolyte" draggable="true" ondragstart="drag(event)" />
+<img id="hwarang" src="buddies/ranged/hwarang.png" alt="hwarang" title="Hwarang" draggable="true" ondragstart="drag(event)" />
+<img id="inventor" src="buddies/ranged/inventor.png" alt="inventor" title="Inventor" draggable="true" ondragstart="drag(event)" />
+<img id="janissary" src="buddies/ranged/janissary.png" alt="janissary" title="Janissary" draggable="true" ondragstart="drag(event)" />
+<img id="maitreya" src="buddies/ranged/maitreya.png" alt="maitreya" title="Maitreya" draggable="true" ondragstart="drag(event)" />
+<img id="minstrel" src="buddies/ranged/minstrel.png" alt="minstrel" title="Minstrel" draggable="true" ondragstart="drag(event)" />
+<img id="necromancer" src="buddies/ranged/necromancer.png" alt="necromancer" title="Necromancer" draggable="true" ondragstart="drag(event)" />
+<img id="nine_tails" src="buddies/ranged/nine_tails.png" alt="nine_tails" title="Nine_tails" draggable="true" ondragstart="drag(event)" />
+<img id="patriot" src="buddies/ranged/patriot.png" alt="patriot" title="Patriot" draggable="true" ondragstart="drag(event)" />
+<img id="prophet" src="buddies/ranged/prophet.png" alt="prophet" title="Prophet" draggable="true" ondragstart="drag(event)" />
+<img id="shao_xian" src="buddies/ranged/shao_xian.png" alt="shao_xian" title="Shao Xian" draggable="true" ondragstart="drag(event)" />
+<img id="shen_hong" src="buddies/ranged/shen_hong.png" alt="shen_hong" title="Shen Hong" draggable="true" ondragstart="drag(event)" />
+<img id="sheriff" src="buddies/ranged/sheriff.png" alt="sheriff" title="Sheriff" draggable="true" ondragstart="drag(event)" />
+<img id="vampire" src="buddies/ranged/vampire.png" alt="vampire" title="Vampire" draggable="true" ondragstart="drag(event)" />
+</div>
+<BR>
+<div id="magic">&nbsp;
+Magic<BR>
+<img id="ching_ya" src="buddies/magic/ching_ya.png" alt="ching_ya" title="Ching Ya" draggable="true" ondragstart="drag(event)" />
+<img id="dharma" src="buddies/magic/dharma.png" alt="dharma" title="Dharma" draggable="true" ondragstart="drag(event)" />
+<img id="elementalist" src="buddies/magic/elementalist.png" alt="elementalist" title="Elementalist" draggable="true" ondragstart="drag(event)" />
+<img id="goddess" src="buddies/magic/goddess.png" alt="goddess" title="Goddess" draggable="true" ondragstart="drag(event)" />
+<img id="hualin" src="buddies/magic/hualin.png" alt="hualin" title="Hualin" draggable="true" ondragstart="drag(event)" />
+<img id="monk" src="buddies/magic/monk.png" alt="monk" title="Monk" draggable="true" ondragstart="drag(event)" />
+<img id="oracle" src="buddies/magic/oracle.png" alt="oracle" title="Oracle" draggable="true" ondragstart="drag(event)" />
+<img id="princess" src="buddies/magic/princess.png" alt="princess" title="Princess" draggable="true" ondragstart="drag(event)" />
+<img id="quilla" src="buddies/magic/quilla.png" alt="quilla" title="Quilla" draggable="true" ondragstart="drag(event)" />
+<img id="shaman" src="buddies/magic/shaman.png" alt="shaman" title="Shaman" draggable="true" ondragstart="drag(event)" />
+<img id="sorceress" src="buddies/magic/sorceress.png" alt="sorceress" title="Sorceress" draggable="true" ondragstart="drag(event)" />
+<img id="white_witch" src="buddies/magic/white_witch.png" alt="white_witch" title="White Witch" draggable="true" ondragstart="drag(event)" />
+<img id="witch" src="buddies/magic/witch.png" alt="witch" title="Witch" draggable="true" ondragstart="drag(event)" />
+<img id="xuanzang" src="buddies/magic/xuanzang.png" alt="xuanzang" title="Xuanzang" draggable="true" ondragstart="drag(event)" />
+</div>
+</div>
+</body>
+</html>
